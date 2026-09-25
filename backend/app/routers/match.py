@@ -7,7 +7,7 @@ router = APIRouter(tags=["Match Analysis"])
 
 
 @router.post("/analyze", response_model=MatchAnalysisResponse)
-async def analyze_match_endpoint(request: MatchAnalysisRequest):
+def analyze_match_endpoint(request: MatchAnalysisRequest):
     try:
         if not request.resume_data or not request.jd_data:
             return MatchAnalysisResponse(

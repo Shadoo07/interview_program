@@ -30,7 +30,7 @@ router = APIRouter(tags=["Knowledge"])
 
 
 @router.post("/upload", response_model=KnowledgeUploadResponse)
-async def upload_document(
+def upload_document(
     file: UploadFile = File(...),
     source_type: str = Form("general"),
     tags: str = Form("[]"),
@@ -41,7 +41,8 @@ async def upload_document(
 ):
     """Upload a knowledge document with optional metadata."""
     try:
-        file_bytes = await file.read()
+        # 同 resume 上传：Starlette 已把文件指针复位到 0，端点在线程池中执行。
+        file_bytes = file.file.read()
         metadata = {
             "source_type": source_type,
             "tags": parse_tags_input(tags),
@@ -56,7 +57,7 @@ async def upload_document(
 
 
 @router.get("/list", response_model=KnowledgeListResponse)
-async def list_documents(db: Session = Depends(get_db)):
+def list_documents(db: Session = Depends(get_db)):
     """List knowledge documents."""
     try:
         docs = get_knowledge_documents(db)
@@ -66,7 +67,7 @@ async def list_documents(db: Session = Depends(get_db)):
 
 
 @router.get("/versions", response_model=KnowledgeVersionListResponse)
-async def list_versions(db: Session = Depends(get_db)):
+def list_versions(db: Session = Depends(get_db)):
     """List knowledge version groups."""
     try:
         return KnowledgeVersionListResponse(code=200, data=get_knowledge_versions(db))
@@ -75,7 +76,7 @@ async def list_versions(db: Session = Depends(get_db)):
 
 
 @router.patch("/{doc_id}", response_model=KnowledgeUploadResponse)
-async def update_document_metadata(
+def update_document_metadata(
     doc_id: int,
     request: KnowledgeMetadataUpdateRequest,
     db: Session = Depends(get_db),
@@ -91,7 +92,7 @@ async def update_document_metadata(
 
 
 @router.delete("/{doc_id}", response_model=KnowledgeDeleteResponse)
-async def delete_document(doc_id: int, db: Session = Depends(get_db)):
+def delete_document(doc_id: int, db: Session = Depends(get_db)):
     """Delete a knowledge document."""
     try:
         success = delete_knowledge_document(db, doc_id)
@@ -103,7 +104,7 @@ async def delete_document(doc_id: int, db: Session = Depends(get_db)):
 
 
 @router.post("/search", response_model=KnowledgeSearchResponse)
-async def search_knowledge(request: KnowledgeSearchRequest, db: Session = Depends(get_db)):
+def search_knowledge(request: KnowledgeSearchRequest, db: Session = Depends(get_db)):
     """Hybrid search: vector retrieval + keyword recall + rerank."""
     try:
         results = search_knowledge_by_keyword(

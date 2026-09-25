@@ -7,7 +7,7 @@ router = APIRouter(tags=["JD Analysis"])
 
 
 @router.post("/analyze", response_model=JDAnalysisResponse)
-async def analyze_jd_endpoint(request: JDAnalysisRequest):
+def analyze_jd_endpoint(request: JDAnalysisRequest):
     try:
         if not request.jd_content or len(request.jd_content.strip()) < 10:
             return JDAnalysisResponse(

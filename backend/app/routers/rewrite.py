@@ -15,7 +15,7 @@ router = APIRouter(tags=["Resume Rewrite"])
 
 
 @router.post("/rewrite", response_model=ResumeRewriteResponse)
-async def rewrite_resume_endpoint(request: ResumeRewriteRequest):
+def rewrite_resume_endpoint(request: ResumeRewriteRequest):
     try:
         if not request.resume_data or not request.jd_data:
             return ResumeRewriteResponse(
@@ -145,6 +145,6 @@ async def rewrite_resume_stream_endpoint(request: ResumeRewriteRequest):
 
 
 @router.get("/modes", response_model=dict)
-async def get_rewrite_modes():
+def get_rewrite_modes():
     from app.schemas.rewrite_schema import REWRITE_MODE_LABELS
     return {"code": 200, "data": REWRITE_MODE_LABELS}

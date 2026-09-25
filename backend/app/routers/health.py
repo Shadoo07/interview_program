@@ -11,6 +11,9 @@ from app.services.vector_store import is_postgres_enabled
 router = APIRouter()
 
 
+# 唯一保留 async 的端点：纯内存的存活探针，不涉及任何 I/O。留在事件循环上执行，
+# 即使线程池被并发阻塞请求占满（见 docs/ARCHITECTURE.md 的并发模型），
+# /api/health/check 依然能立即响应。
 @router.get("/check")
 async def health_check():
     return {
@@ -25,7 +28,7 @@ async def health_check():
 
 
 @router.get("/llm-config")
-async def get_llm_config():
+def get_llm_config():
     """Return current LLM configuration."""
     config_info = llm_service.get_config_info()
     return {
@@ -36,7 +39,7 @@ async def get_llm_config():
 
 
 @router.get("/ready")
-async def readiness_check():
+def readiness_check():
     db_status = check_database()
     ok = db_status["ok"]
     payload = {
@@ -62,7 +65,7 @@ async def readiness_check():
 
 
 @router.get("/observability")
-async def observability_snapshot():
+def observability_snapshot():
     return {
         "code": 200,
         "message": "success",
@@ -75,7 +78,7 @@ async def observability_snapshot():
 
 
 @router.get("/llm-models")
-async def get_llm_models():
+def get_llm_models():
     """Return selectable LLM model presets."""
     return {
         "code": 200,
@@ -85,7 +88,7 @@ async def get_llm_models():
 
 
 @router.get("/llm-test")
-async def test_llm_connection():
+def test_llm_connection():
     """Call the configured model once to verify connectivity."""
     return {
         "code": 200,

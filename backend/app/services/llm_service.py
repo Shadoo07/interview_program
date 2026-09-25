@@ -181,6 +181,7 @@ class LLMService:
                 max_tokens=max_tokens,
                 timeout=self.timeout,
                 max_retries=self.max_retries,
+                **self._extra_request_kwargs(),
             )
             for chunk in model.stream(messages):
                 text = getattr(chunk, "content", "")

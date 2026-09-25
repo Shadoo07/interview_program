@@ -20,7 +20,7 @@ router = APIRouter(tags=["History"])
 
 
 @router.post("/save", response_model=HistorySaveResponse)
-async def save_history_endpoint(request: HistorySaveRequest, db: Session = Depends(get_db)):
+def save_history_endpoint(request: HistorySaveRequest, db: Session = Depends(get_db)):
     try:
         history_id = save_history(db, request)
         return HistorySaveResponse(
@@ -37,7 +37,7 @@ async def save_history_endpoint(request: HistorySaveRequest, db: Session = Depen
 
 
 @router.get("/list", response_model=HistoryListResponse)
-async def get_history_list_endpoint(db: Session = Depends(get_db), limit: int = 20):
+def get_history_list_endpoint(db: Session = Depends(get_db), limit: int = 20):
     try:
         records = get_history_list(db, limit)
         return HistoryListResponse(
@@ -54,7 +54,7 @@ async def get_history_list_endpoint(db: Session = Depends(get_db), limit: int = 
 
 
 @router.get("/{history_id}", response_model=HistoryDetailResponse)
-async def get_history_detail_endpoint(history_id: int, db: Session = Depends(get_db)):
+def get_history_detail_endpoint(history_id: int, db: Session = Depends(get_db)):
     try:
         record = get_history_detail(db, history_id)
         if not record:
@@ -77,7 +77,7 @@ async def get_history_detail_endpoint(history_id: int, db: Session = Depends(get
 
 
 @router.delete("/{history_id}", response_model=HistoryDeleteResponse)
-async def delete_history_endpoint(history_id: int, db: Session = Depends(get_db)):
+def delete_history_endpoint(history_id: int, db: Session = Depends(get_db)):
     try:
         success = delete_history(db, history_id)
         if not success:

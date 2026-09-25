@@ -28,6 +28,27 @@ app/
 └── utils/                 # 文件解析、JSON 清洗、文档切分
 ```
 
+## 并发模型
+
+FastAPI 中 `async def` 端点运行在事件循环上，`def` 端点由 anyio 线程池接管。本项目的业务链路是**同步**的——LangChain 的 `invoke()` / `stream()`、SQLAlchemy 同步 Session、PyMuPDF 解析都是阻塞调用。因此除以下两类端点外，所有端点一律声明为 `def`，避免阻塞事件循环：
+
+- **SSE 流式端点**（`/api/resume/rewrite/stream`、`/api/interview/questions/stream`）：保持 `async def`，其同步生成器由 Starlette 通过 `iterate_in_threadpool` 迭代。
+- **`/api/health/check`**：纯内存存活探针，刻意留在事件循环上，保证线程池被占满时依然能立即响应。
+
+其余 25 个 API 端点均为 `def`。线程池上限默认为 **40**（anyio `CapacityLimiter(40)`），即单实例最多 40 个并发阻塞请求。
+
+实测对照（4 个并发请求，每个端点固定耗时 1s，单 worker 单事件循环）：
+
+| 端点声明 | 4 个并发请求总耗时 | 负载期间 `/api/health/check` |
+| --- | ---: | ---: |
+| `async def`（阻塞事件循环） | 4.04s（串行） | 3.62s |
+| `def`（线程池，当前实现） | 1.16s | 0.02s |
+
+已知边界：
+
+- SSE 与普通端点**共用同一个 40 线程池**，因此 40 条并发长连接会饿死普通接口。多轮面试对话（长连接 + 多次 LLM 调用）需要把流式链路改为 `astream` 才能解除该耦合。
+- `/api/agent/diagnose` 内部还会再用 `ThreadPoolExecutor(3)` 并行三个视角，因此该路径的最坏线程数可达端点并发的 4 倍（40 → 160 个并发 LLM 调用）。后续需要引入全局 LLM 并发上限。
+
 ## LLM 调用链路
 
 ```mermaid

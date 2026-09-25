@@ -14,9 +14,12 @@ router = APIRouter()
 
 
 @router.post("/upload", response_model=FileUploadResponse)
-async def upload_resume(file: UploadFile = File(...)):
+def upload_resume(file: UploadFile = File(...)):
     try:
-        content = await file.read()
+        # Starlette 在解析完 multipart 后会把文件指针复位到 0
+        # （formparsers 中的 `await part.file.seek(0)`），因此这里可以同步读取。
+        # 端点已改为 def，整体在线程池中执行，不再阻塞事件循环。
+        content = file.file.read()
         result = resume_service.upload_resume(content, file.filename)
         return {
             "code": 200,
@@ -41,7 +44,7 @@ async def upload_resume(file: UploadFile = File(...)):
 
 
 @router.post("/parse", response_model=ResumeParseResponse)
-async def parse_resume(request: ResumeParseRequest):
+def parse_resume(request: ResumeParseRequest):
     try:
         result = resume_service.parse_resume(request.file_id)
         return {
@@ -65,7 +68,7 @@ async def parse_resume(request: ResumeParseRequest):
 
 
 @router.post("/structure", response_model=ResumeStructureAPIResponse)
-async def structure_resume(request: ResumeStructureRequest):
+def structure_resume(request: ResumeStructureRequest):
     try:
         result = resume_service.structure_resume(request.raw_text)
         return {

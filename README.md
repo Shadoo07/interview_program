@@ -48,6 +48,7 @@ Interview AI Agent 解决学生在简历撰写、岗位匹配和面试准备中�
 | 流式输出 | 简历改写和面试自我介绍支持 SSE 流式生成，用户可实时看到内容逐字输出，体验更流畅 |
 | LLM 工程化 | 基于 LangChain 封装 OpenAI-compatible 调用，支持 DeepSeek、Gemini、GPT、Qwen、GLM 等模型预设 |
 | 稳定兜底 | JD、匹配、诊断等核心链路均保留规则兜底，没有 API Key 也能本地演示 |
+| 并发模型 | 同步阻塞链路（LLM 调用、SQLAlchemy、PDF 解析）统一交给 anyio 线程池，实测 4 并发下总耗时由 4.04s 降到 1.16s，负载期间健康检查响应由 3.62s 降到 0.02s |
 | RAG 增强 | 支持知识库上传、语义 chunk、Embedding、pgvector/SQLite 双路径、hybrid retrieval、rerank 和 citation 展示 |
 | 可观测性 | 后端输出结构化 JSON 日志，并提供健康检查、就绪检查和 LLM/RAG 调用统计 |
 | 工程质量 | 内置 Agent 评测、RAG 命中率评测、后端静态检查、前端构建和 Docker Compose 本地部署 |
@@ -144,6 +145,9 @@ flowchart LR
 ```
 
 更多说明见 [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) 和 [docs/API.md](docs/API.md)。
+
+并发模型（阻塞端点与线程池的划分、40 并发上限、SSE 与普通接口共用线程池的边界）见
+[docs/ARCHITECTURE.md 的「并发模型」](docs/ARCHITECTURE.md#并发模型)。
 
 ## 项目结构
 

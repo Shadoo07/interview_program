@@ -20,7 +20,7 @@ router = APIRouter(tags=["Interview Questions"])
 
 
 @router.post("/questions", response_model=InterviewQuestionsResponse)
-async def generate_questions_endpoint(request: InterviewQuestionsRequest):
+def generate_questions_endpoint(request: InterviewQuestionsRequest):
     try:
         if not request.resume_data or not request.jd_data:
             return InterviewQuestionsResponse(
@@ -118,6 +118,6 @@ async def generate_questions_stream_endpoint(request: InterviewQuestionsRequest)
 
 
 @router.get("/types", response_model=dict)
-async def get_question_types():
+def get_question_types():
     from app.schemas.interview_schema import QUESTION_TYPE_LABELS
     return {"code": 200, "data": QUESTION_TYPE_LABELS}

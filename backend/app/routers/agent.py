@@ -8,7 +8,7 @@ from app.schemas.agent import DiagnoseRequest, DiagnoseResponse
 router = APIRouter()
 
 @router.post("/diagnose", response_model=DiagnoseResponse)
-async def diagnose_resume(request: DiagnoseRequest, db: Session = Depends(get_db)):
+def diagnose_resume(request: DiagnoseRequest, db: Session = Depends(get_db)):
     from app.services.agent_service import diagnose_resume
     try:
         result = diagnose_resume(request.resume_text, request.jd_content, db)
