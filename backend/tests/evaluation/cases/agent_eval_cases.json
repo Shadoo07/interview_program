@@ -1,0 +1,54 @@
+[
+  {
+    "id": "ai_application_strong",
+    "title": "AI 应用开发项目匹配",
+    "resume_text": "教育背景：计算机科学与技术本科。项目经历：AI 简历与面试辅导 Agent，使用 Python、FastAPI、LangChain、RAG、Embedding 和向量数据库构建多视角简历诊断服务，支持 LLM JSON 输出、模型兜底和历史记录。负责后端接口、提示词模板、知识库检索和异常处理，优化接口响应速度 30%。技能：Python、FastAPI、MySQL、Redis、Docker、LLM、RAG。",
+    "jd_content": "AI 应用开发实习生。要求熟悉 Python、FastAPI、LLM、RAG、Embedding、向量数据库，能设计 Prompt 和 Agent 流程，有 AI 应用项目经验优先。",
+    "expected_family_ids": ["ai_application"],
+    "expected_keywords": ["Python", "FastAPI", "LLM", "RAG"],
+    "min_overall_score": 70,
+    "requires_project_deep_dive": true
+  },
+  {
+    "id": "backend_missing_metrics",
+    "title": "后端开发缺少量化结果",
+    "resume_text": "项目经历：校园二手交易平台。使用 Java、Spring Boot、MySQL、Redis 开发商品发布、订单管理、用户登录等功能。参与接口开发和数据库表设计。技能：Java、Spring Boot、MySQL、Redis、Git。",
+    "jd_content": "后端开发实习生。要求熟悉 Java、Spring Boot、MySQL、Redis，理解接口设计、缓存、事务、并发和数据库优化，有项目性能优化经验优先。",
+    "expected_family_ids": ["backend", "java_backend"],
+    "expected_keywords": ["Java", "Spring Boot", "MySQL", "Redis"],
+    "expected_gap_keywords": ["量化", "指标", "性能"],
+    "min_overall_score": 55,
+    "requires_project_deep_dive": true
+  },
+  {
+    "id": "frontend_project",
+    "title": "前端开发项目匹配",
+    "resume_text": "项目经历：在线学习平台前端。使用 Vue3、TypeScript、Pinia、Vue Router、Axios 和 Element Plus 完成课程列表、学习进度、个人中心和响应式布局。负责组件拆分、接口联调和页面性能优化。技能：JavaScript、TypeScript、Vue、Vite、CSS。",
+    "jd_content": "前端开发实习生。要求熟悉 Vue3、TypeScript、组件化开发、状态管理、路由、接口联调和前端工程化，了解性能优化。",
+    "expected_family_ids": ["frontend"],
+    "expected_keywords": ["Vue", "TypeScript"],
+    "min_overall_score": 65,
+    "requires_project_deep_dive": true
+  },
+  {
+    "id": "algorithm_weak_evidence",
+    "title": "算法岗位证据不足",
+    "resume_text": "个人优势：学习能力强，了解 Python 和机器学习，做过一些数据分析练习。技能：Python、Pandas、NumPy。",
+    "jd_content": "算法工程实习生。要求熟悉机器学习、深度学习、PyTorch、模型训练、特征工程、评估指标，有推荐/NLP/CV 项目经验。",
+    "expected_family_ids": ["algorithm"],
+    "expected_keywords": ["Python"],
+    "expected_gap_keywords": ["项目", "指标", "模型"],
+    "max_overall_score": 75,
+    "requires_project_deep_dive": true
+  },
+  {
+    "id": "product_ops",
+    "title": "产品运营方向",
+    "resume_text": "校园社群增长项目：负责用户调研、活动策划、数据复盘和社群运营，通过问卷和访谈发现新生使用痛点，设计活动流程并跟踪转化率。技能：用户研究、数据分析、Excel、SQL、沟通协作。",
+    "jd_content": "产品运营实习生。要求具备用户研究、需求分析、数据分析、活动运营和复盘能力，能通过数据提升转化、留存和用户活跃。",
+    "expected_family_ids": ["product_ops"],
+    "expected_keywords": ["需求分析", "数据分析"],
+    "min_overall_score": 60,
+    "requires_project_deep_dive": true
+  }
+]

@@ -1,0 +1,38 @@
+*.pyc
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.coverage
+.env
+*.db
+*.sqlite
+node_modules/
+dist/
+build/
+test-results/
+playwright-report/
+*.log
+.DS_Store
+.vscode/
+.idea/
+
+# 虚拟环境
+venv/
+env/
+ENV/
+.venv
+
+# 上传文件：保留目录结构，不提交用户上传内容
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# 工具运行时状态（会话任务记录，非项目代码）
+.reasonix/
+
+# 旧项目文件夹（不提交）
+apps/
+
+# 本地测试文件
+test_upload.py
+test_doc.txt
+backend/test_diag.json

@@ -1,0 +1,77 @@
+[
+  {
+    "id": "ai_rag_project_followup",
+    "query": "AI 应用开发岗位，简历里有 RAG 项目，面试官会追问哪些工程难点",
+    "expected_doc": "ai_project_followups.md",
+    "expected_tags": ["RAG", "项目追问"],
+    "role_family": "ai_application",
+    "documents": [
+      {
+        "filename": "ai_project_followups.md",
+        "source_type": "project_followup",
+        "role_family": "ai_application",
+        "version": "v2",
+        "tags": ["RAG", "项目追问"],
+        "content": "项目追问：RAG 系统需要说明切分策略、embedding 模型、向量库、召回率评测、rerank、引用来源和失败兜底。面试官常追问 chunk 重叠、top_k、幻觉控制、缓存和降级方案。"
+      },
+      {
+        "filename": "frontend_requirements.md",
+        "source_type": "job_requirement",
+        "role_family": "frontend",
+        "version": "v1",
+        "tags": ["Vue", "前端"],
+        "content": "前端开发岗位关注 Vue3、TypeScript、组件化、状态管理、性能优化和跨端适配。"
+      }
+    ]
+  },
+  {
+    "id": "java_backend_requirement",
+    "query": "Java 后端实习需要在简历中体现哪些 Spring Boot Redis MySQL 能力",
+    "expected_doc": "java_backend_requirements.md",
+    "expected_tags": ["Java", "后端"],
+    "role_family": "java_backend",
+    "documents": [
+      {
+        "filename": "java_backend_requirements.md",
+        "source_type": "job_requirement",
+        "role_family": "java_backend",
+        "version": "v1",
+        "tags": ["Java", "后端"],
+        "content": "Java 后端岗位要求熟悉 Java 基础、Spring Boot、MyBatis、MySQL 索引与事务、Redis 缓存、消息队列、接口设计、Docker 部署和日志排查。"
+      },
+      {
+        "filename": "resume_bullets.md",
+        "source_type": "resume_expression",
+        "role_family": "general",
+        "version": "v1",
+        "tags": ["简历表达"],
+        "content": "优秀简历表达应使用动作动词、量化指标和个人贡献，例如优化接口响应时间、提升稳定性、降低人工处理成本。"
+      }
+    ]
+  },
+  {
+    "id": "resume_expression_metrics",
+    "query": "项目经历怎么改写才有量化结果和个人贡献",
+    "expected_doc": "resume_expression_examples.md",
+    "expected_tags": ["简历表达", "量化"],
+    "role_family": "",
+    "documents": [
+      {
+        "filename": "resume_expression_examples.md",
+        "source_type": "resume_expression",
+        "role_family": "general",
+        "version": "v3",
+        "tags": ["简历表达", "量化"],
+        "content": "优秀项目 bullet：负责核心模块设计与接口开发，通过缓存、批处理和 SQL 优化将接口平均响应时间从 1.2s 降至 350ms，支撑 5000+ 次模拟访问。强调动作、技术方案、量化结果和个人贡献。"
+      },
+      {
+        "filename": "algorithm_interview.md",
+        "source_type": "interview_question",
+        "role_family": "algorithm",
+        "version": "v1",
+        "tags": ["算法"],
+        "content": "算法工程岗位常考机器学习基础、特征工程、模型评估、过拟合处理和线上效果分析。"
+      }
+    ]
+  }
+]

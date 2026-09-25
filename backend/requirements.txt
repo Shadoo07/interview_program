@@ -1,0 +1,18 @@
+# 运行时依赖的唯一声明来源。
+# 版本按 interview-agent 环境（Python 3.11.16）实测结果锁定，
+# 本地开发与 Docker 构建共用本文件，保证两边依赖一致。
+# 开发与质量检查依赖见 requirements-dev.txt。
+
+fastapi==0.141.1
+uvicorn[standard]==0.53.0
+pydantic==2.13.5
+pydantic-settings==2.15.0
+sqlalchemy==2.0.54
+python-multipart==0.0.32
+pymupdf==1.28.2
+python-docx==1.2.0
+python-dotenv==1.2.3
+langchain==1.4.1
+langchain-openai==1.6.2
+pgvector==0.5.0
+psycopg[binary]==3.3.5

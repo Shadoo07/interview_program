@@ -1,0 +1,134 @@
+{
+  "summary": {
+    "generated_at": "2026-05-01T00:27:30.484289+00:00",
+    "case_count": 3,
+    "top_k": 3,
+    "hit_at_1": 1.0,
+    "hit_at_k": 1.0,
+    "mrr": 1.0
+  },
+  "results": [
+    {
+      "id": "ai_rag_project_followup",
+      "query": "AI 应用开发岗位，简历里有 RAG 项目，面试官会追问哪些工程难点",
+      "expected_doc": "ai_project_followups.md",
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_k": true,
+      "mrr": 1.0,
+      "top_document": "ai_project_followups.md",
+      "top_citation": "ai_project_followups.md | section=main | chunk=1 | version=v2",
+      "results": [
+        {
+          "chunk_id": 1,
+          "document_id": 1,
+          "document_name": "ai_project_followups.md",
+          "chunk_index": 0,
+          "section_title": "正文",
+          "content": "项目追问：RAG 系统需要说明切分策略、embedding 模型、向量库、召回率评测、rerank、引用来源和失败兜底。面试官常追问 chunk 重叠、top_k、幻觉控制、缓存和降级方案。",
+          "score": 0.2943,
+          "retrieval_score": 0.2965,
+          "rerank_score": 0.2943,
+          "citation": "ai_project_followups.md | section=main | chunk=1 | version=v2",
+          "source_type": "project_followup",
+          "tags": [
+            "RAG",
+            "项目追问"
+          ],
+          "role_family": "ai_application",
+          "version": "v2",
+          "status": "published",
+          "content_hash": "1656f7acbc48a2f024604988fa0c8c80f24b4e66029b33785571cabbfa026710"
+        }
+      ]
+    },
+    {
+      "id": "java_backend_requirement",
+      "query": "Java 后端实习需要在简历中体现哪些 Spring Boot Redis MySQL 能力",
+      "expected_doc": "java_backend_requirements.md",
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_k": true,
+      "mrr": 1.0,
+      "top_document": "java_backend_requirements.md",
+      "top_citation": "java_backend_requirements.md | section=main | chunk=1 | version=v1",
+      "results": [
+        {
+          "chunk_id": 1,
+          "document_id": 1,
+          "document_name": "java_backend_requirements.md",
+          "chunk_index": 0,
+          "section_title": "正文",
+          "content": "Java 后端岗位要求熟悉 Java 基础、Spring Boot、MyBatis、MySQL 索引与事务、Redis 缓存、消息队列、接口设计、Docker 部署和日志排查。",
+          "score": 0.7162,
+          "retrieval_score": 0.7708,
+          "rerank_score": 0.7162,
+          "citation": "java_backend_requirements.md | section=main | chunk=1 | version=v1",
+          "source_type": "job_requirement",
+          "tags": [
+            "Java",
+            "后端"
+          ],
+          "role_family": "java_backend",
+          "version": "v1",
+          "status": "published",
+          "content_hash": "b01770f301d7fcbaf31a17960c48dcff433402ee0a0609c061428ba68d894e1c"
+        }
+      ]
+    },
+    {
+      "id": "resume_expression_metrics",
+      "query": "项目经历怎么改写才有量化结果和个人贡献",
+      "expected_doc": "resume_expression_examples.md",
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_k": true,
+      "mrr": 1.0,
+      "top_document": "resume_expression_examples.md",
+      "top_citation": "resume_expression_examples.md | section=main | chunk=1 | version=v3",
+      "results": [
+        {
+          "chunk_id": 1,
+          "document_id": 1,
+          "document_name": "resume_expression_examples.md",
+          "chunk_index": 0,
+          "section_title": "正文",
+          "content": "优秀项目 bullet：负责核心模块设计与接口开发，通过缓存、批处理和 SQL 优化将接口平均响应时间从 1.2s 降至 350ms，支撑 5000+ 次模拟访问。强调动作、技术方案、量化结果和个人贡献。",
+          "score": 0.1531,
+          "retrieval_score": 0.3294,
+          "rerank_score": 0.1531,
+          "citation": "resume_expression_examples.md | section=main | chunk=1 | version=v3",
+          "source_type": "resume_expression",
+          "tags": [
+            "简历表达",
+            "量化"
+          ],
+          "role_family": "general",
+          "version": "v3",
+          "status": "published",
+          "content_hash": "e2791556443be158922f4d1118c2c9371450cbf3a4a2cc5ef1c3f99a656205c4"
+        },
+        {
+          "chunk_id": 2,
+          "document_id": 2,
+          "document_name": "algorithm_interview.md",
+          "chunk_index": 0,
+          "section_title": "正文",
+          "content": "算法工程岗位常考机器学习基础、特征工程、模型评估、过拟合处理和线上效果分析。",
+          "score": 0.0391,
+          "retrieval_score": 0.0744,
+          "rerank_score": 0.0391,
+          "citation": "algorithm_interview.md | section=main | chunk=1 | version=v1",
+          "source_type": "interview_question",
+          "tags": [
+            "算法"
+          ],
+          "role_family": "algorithm",
+          "version": "v1",
+          "status": "published",
+          "content_hash": "5282f60192fe04783f8a23d6a4482bcf3ae447859ce4cfddc32e7d7cec7ab872"
+        }
+      ]
+    }
+  ]
+}

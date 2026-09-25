@@ -1,0 +1,6 @@
+# 换行符策略。
+# 本机 core.autocrlf=true，Windows 检出会把文本转成 CRLF；而 shell 脚本一旦
+# 带 CRLF，容器内的 shebang 会失效（backend/Dockerfile 里那句 sed 就是在兜底这个问题）。
+# 这里显式把脚本钉死为 LF，让 Dockerfile 的兜底不再必要。
+* text=auto
+*.sh text eol=lf

@@ -1,0 +1,221 @@
+{
+  "generated_at": "2026-04-30T17:54:25.707960+00:00",
+  "summary": {
+    "total": 5,
+    "passed": 5,
+    "failed": 0,
+    "pass_rate": 1.0
+  },
+  "quality_dimensions": [
+    "job_family_detection",
+    "multi_perspective_diagnosis",
+    "evidence_chain_output",
+    "project_deep_dive_output",
+    "score_range_guardrail",
+    "keyword_and_gap_coverage"
+  ],
+  "cases": [
+    {
+      "id": "ai_application_strong",
+      "title": "AI 应用开发项目匹配",
+      "passed": true,
+      "checks": {
+        "source_is_rules": true,
+        "has_job_profile": true,
+        "job_family_matches": true,
+        "has_perspectives": true,
+        "has_evidence_chains": true,
+        "has_validation": true,
+        "has_project_deep_dive": true,
+        "score_in_expected_range": true,
+        "expected_keywords_present": true,
+        "expected_gap_keywords_present": true
+      },
+      "expected": {
+        "family_ids": [
+          "ai_application"
+        ],
+        "min_overall_score": 70,
+        "max_overall_score": null,
+        "keywords": [
+          "Python",
+          "FastAPI",
+          "LLM",
+          "RAG"
+        ],
+        "gap_keywords": []
+      },
+      "summary": {
+        "source": "rules",
+        "overall_score": 76,
+        "job_family": "ai_application",
+        "job_title": "AI 应用开发",
+        "project_deep_dives": 1,
+        "perspectives": 3,
+        "evidence_chains": 6
+      }
+    },
+    {
+      "id": "backend_missing_metrics",
+      "title": "后端开发缺少量化结果",
+      "passed": true,
+      "checks": {
+        "source_is_rules": true,
+        "has_job_profile": true,
+        "job_family_matches": true,
+        "has_perspectives": true,
+        "has_evidence_chains": true,
+        "has_validation": true,
+        "has_project_deep_dive": true,
+        "score_in_expected_range": true,
+        "expected_keywords_present": true,
+        "expected_gap_keywords_present": true
+      },
+      "expected": {
+        "family_ids": [
+          "backend",
+          "java_backend"
+        ],
+        "min_overall_score": 55,
+        "max_overall_score": null,
+        "keywords": [
+          "Java",
+          "Spring Boot",
+          "MySQL",
+          "Redis"
+        ],
+        "gap_keywords": [
+          "量化",
+          "指标",
+          "性能"
+        ]
+      },
+      "summary": {
+        "source": "rules",
+        "overall_score": 74,
+        "job_family": "java_backend",
+        "job_title": "Java 开发",
+        "project_deep_dives": 1,
+        "perspectives": 3,
+        "evidence_chains": 6
+      }
+    },
+    {
+      "id": "frontend_project",
+      "title": "前端开发项目匹配",
+      "passed": true,
+      "checks": {
+        "source_is_rules": true,
+        "has_job_profile": true,
+        "job_family_matches": true,
+        "has_perspectives": true,
+        "has_evidence_chains": true,
+        "has_validation": true,
+        "has_project_deep_dive": true,
+        "score_in_expected_range": true,
+        "expected_keywords_present": true,
+        "expected_gap_keywords_present": true
+      },
+      "expected": {
+        "family_ids": [
+          "frontend"
+        ],
+        "min_overall_score": 65,
+        "max_overall_score": null,
+        "keywords": [
+          "Vue",
+          "TypeScript"
+        ],
+        "gap_keywords": []
+      },
+      "summary": {
+        "source": "rules",
+        "overall_score": 74,
+        "job_family": "frontend",
+        "job_title": "前端开发",
+        "project_deep_dives": 1,
+        "perspectives": 3,
+        "evidence_chains": 6
+      }
+    },
+    {
+      "id": "algorithm_weak_evidence",
+      "title": "算法岗位证据不足",
+      "passed": true,
+      "checks": {
+        "source_is_rules": true,
+        "has_job_profile": true,
+        "job_family_matches": true,
+        "has_perspectives": true,
+        "has_evidence_chains": true,
+        "has_validation": true,
+        "has_project_deep_dive": true,
+        "score_in_expected_range": true,
+        "expected_keywords_present": true,
+        "expected_gap_keywords_present": true
+      },
+      "expected": {
+        "family_ids": [
+          "algorithm"
+        ],
+        "min_overall_score": null,
+        "max_overall_score": 75,
+        "keywords": [
+          "Python"
+        ],
+        "gap_keywords": [
+          "项目",
+          "指标",
+          "模型"
+        ]
+      },
+      "summary": {
+        "source": "rules",
+        "overall_score": 58,
+        "job_family": "algorithm",
+        "job_title": "算法工程",
+        "project_deep_dives": 1,
+        "perspectives": 3,
+        "evidence_chains": 6
+      }
+    },
+    {
+      "id": "product_ops",
+      "title": "产品运营方向",
+      "passed": true,
+      "checks": {
+        "source_is_rules": true,
+        "has_job_profile": true,
+        "job_family_matches": true,
+        "has_perspectives": true,
+        "has_evidence_chains": true,
+        "has_validation": true,
+        "has_project_deep_dive": true,
+        "score_in_expected_range": true,
+        "expected_keywords_present": true,
+        "expected_gap_keywords_present": true
+      },
+      "expected": {
+        "family_ids": [
+          "product_ops"
+        ],
+        "min_overall_score": 60,
+        "max_overall_score": null,
+        "keywords": [
+          "需求分析",
+          "数据分析"
+        ],
+        "gap_keywords": []
+      },
+      "summary": {
+        "source": "rules",
+        "overall_score": 67,
+        "job_family": "product_ops",
+        "job_title": "产品/运营",
+        "project_deep_dives": 1,
+        "perspectives": 3,
+        "evidence_chains": 6
+      }
+    }
+  ]
+}

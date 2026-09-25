@@ -1,0 +1,58 @@
+# 依赖声明统一放在 requirements.txt / requirements-dev.txt，本文件只承载工具配置，
+# 不引入打包元数据（因此不声明 [project]）。
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+extend-exclude = [".ruff_cache", "__pycache__"]
+
+[tool.ruff.lint]
+select = [
+    "E",       # pycodestyle errors
+    "W",       # pycodestyle warnings
+    "F",       # pyflakes
+    "I",       # isort
+    "UP",      # pyupgrade
+    "B",       # flake8-bugbear
+    "C4",      # flake8-comprehensions
+    "SIM",     # flake8-simplify
+    "RUF",     # ruff 自有规则
+    "ASYNC",   # flake8-async
+    "DTZ",     # flake8-datetimez
+    "TRY002",  # 禁止 raise Exception
+    "TRY004",  # 类型检查应抛出 TypeError
+]
+ignore = [
+    # 行长由 line-length 约束，硬换行交给 formatter 处理
+    "E501",
+    # 中文注释与文案中的全角标点是刻意为之，不是歧义字符
+    "RUF001",
+    "RUF002",
+    "RUF003",
+    # 本项目以「宽 except + 规则兜底」为核心设计（见 llm_service / embedding_service /
+    # agent_service），盲捕获是刻意的降级手段，并由评测用例覆盖其行为
+    "BLE001",
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["app"]
+
+[tool.ruff.lint.flake8-bugbear]
+# FastAPI 的依赖注入本身就写作参数默认值位置上的 Depends(...) / File(...)，
+# 属框架官方用法，不应按 B008 处理
+extend-immutable-calls = [
+    "fastapi.Depends",
+    "fastapi.File",
+    "fastapi.Form",
+    "fastapi.Query",
+    "fastapi.Path",
+    "fastapi.Body",
+    "fastapi.Header",
+    "fastapi.Cookie",
+]
+
+[tool.ruff.lint.per-file-ignores]
+# extract_json_object 抛 ValueError 是刻意维持的接口契约：agent_service（4 处）、
+# jd_service、match_service 共 6 处调用方都以 `except (ValueError, ValidationError)`
+# 触发规则兜底，改成 TypeError 会直接击穿整条降级链路。
+"app/utils/json_utils.py" = ["TRY004"]

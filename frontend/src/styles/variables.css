@@ -1,0 +1,133 @@
+/* ===== Design Tokens — AI Career Command Center ===== */
+
+:root {
+  /* ---- Core Colors ---- */
+  --color-bg:              #F8FAFC;
+  --color-bg-alt:          #F1F5F9;
+  --color-surface:         #FFFFFF;
+  --color-surface-alt:     #FAFBFC;
+  --color-border:          #E2E8F0;
+  --color-border-light:    #F1F5F9;
+
+  --color-text:            #0F172A;
+  --color-text-body:       #334155;
+  --color-text-muted:      #64748B;
+  --color-text-weak:       #94A3B8;
+
+  /* ---- Brand Colors ---- */
+  --color-brand:           #2563EB;
+  --color-brand-hover:     #1D4ED8;
+  --color-brand-dark:      #1E40AF;
+  --color-brand-light:     #EFF6FF;
+  --color-brand-soft:      #DBEAFE;
+
+  --color-purple:          #7C3AED;
+  --color-purple-hover:    #6D28D9;
+  --color-purple-dark:     #5B21B6;
+  --color-purple-light:    #F5F3FF;
+  --color-purple-soft:     #EDE9FE;
+
+  --color-success:         #16A34A;
+  --color-success-light:   #F0FDF4;
+  --color-success-soft:    #DCFCE7;
+
+  --color-warning:         #F59E0B;
+  --color-warning-light:   #FFFBEB;
+  --color-warning-soft:    #FEF3C7;
+
+  --color-danger:          #DC2626;
+  --color-danger-light:    #FEF2F2;
+  --color-danger-soft:     #FEE2E2;
+
+  --color-info:            #0EA5E9;
+  --color-info-light:      #F0F9FF;
+  --color-info-soft:       #E0F2FE;
+
+  /* ---- Gradients (tasteful, used sparingly) ---- */
+  --gradient-brand:        linear-gradient(135deg, #2563EB 0%, #7C3AED 100%);
+  --gradient-brand-subtle: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+  --gradient-brand-hover:  linear-gradient(135deg, #1D4ED8 0%, #6D28D9 100%);
+  --gradient-hero:         linear-gradient(135deg, #EFF6FF 0%, #F5F3FF 50%, #F0F9FF 100%);
+  --gradient-card-blue:    linear-gradient(135deg, rgba(37, 99, 235, 0.06) 0%, rgba(124, 58, 237, 0.04) 100%);
+  --gradient-card-purple:  linear-gradient(135deg, rgba(124, 58, 237, 0.06) 0%, rgba(37, 99, 235, 0.04) 100%);
+  --gradient-glow-blue:    radial-gradient(ellipse at center, rgba(37, 99, 235, 0.12) 0%, transparent 70%);
+  --gradient-glow-purple:  radial-gradient(ellipse at center, rgba(124, 58, 237, 0.10) 0%, transparent 70%);
+
+  /* ---- Glass Effect ---- */
+  --glass-bg:              rgba(255, 255, 255, 0.72);
+  --glass-bg-hover:        rgba(255, 255, 255, 0.88);
+  --glass-border:          rgba(255, 255, 255, 0.60);
+  --glass-border-hover:    rgba(37, 99, 235, 0.25);
+  --glass-shadow:          0 8px 32px rgba(0, 0, 0, 0.04), 0 2px 8px rgba(0, 0, 0, 0.02);
+  --glass-shadow-hover:    0 12px 40px rgba(0, 0, 0, 0.06), 0 4px 12px rgba(0, 0, 0, 0.03);
+
+  /* ---- Glow Effects ---- */
+  --glow-blue:             0 0 20px rgba(37, 99, 235, 0.15), 0 0 40px rgba(37, 99, 235, 0.05);
+  --glow-purple:           0 0 20px rgba(124, 58, 237, 0.12), 0 0 40px rgba(124, 58, 237, 0.04);
+  --glow-ring-blue:        0 0 0 1px rgba(37, 99, 235, 0.20), 0 0 20px rgba(37, 99, 235, 0.08);
+  --glow-ring-purple:      0 0 0 1px rgba(124, 58, 237, 0.18), 0 0 20px rgba(124, 58, 237, 0.06);
+
+  /* ---- Typography ---- */
+  --font-family:           'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono:             'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+
+  --text-xs:               0.75rem;
+  --text-sm:               0.8125rem;
+  --text-base:             0.875rem;
+  --text-md:               1rem;
+  --text-lg:               1.125rem;
+  --text-xl:               1.25rem;
+  --text-2xl:              1.5rem;
+  --text-3xl:              1.875rem;
+  --text-4xl:              2.25rem;
+  --text-5xl:              3rem;
+
+  --leading-tight:         1.25;
+  --leading-normal:        1.5;
+  --leading-relaxed:       1.625;
+  --leading-loose:         1.75;
+
+  --weight-normal:         400;
+  --weight-medium:         500;
+  --weight-semibold:       600;
+  --weight-bold:           700;
+
+  /* ---- Spacing (4pt grid) ---- */
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.25rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+
+  /* ---- Border Radius ---- */
+  --radius-sm:    6px;
+  --radius-md:    10px;
+  --radius-lg:    16px;
+  --radius-xl:    20px;
+  --radius-2xl:   24px;
+  --radius-full:  9999px;
+
+  /* ---- Shadows ---- */
+  --shadow-xs:    0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-sm:    0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md:    0 4px 6px rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.03);
+  --shadow-lg:    0 10px 15px rgba(0, 0, 0, 0.05), 0 4px 6px rgba(0, 0, 0, 0.03);
+  --shadow-xl:    0 20px 40px rgba(0, 0, 0, 0.06), 0 8px 16px rgba(0, 0, 0, 0.03);
+  --shadow-card:  0 1px 3px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(0, 0, 0, 0.03);
+
+  /* ---- Transitions ---- */
+  --transition-fast:   150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow:   350ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-spring: 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ---- Layout ---- */
+  --sidebar-width:        244px;
+  --content-max-width:    1200px;
+}
